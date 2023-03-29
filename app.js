@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Handlebars = require("handlebars");
-const { duration } = require("moment");
 const moment = require("moment");
 
 Handlebars.registerHelper("toString", function (json) {
