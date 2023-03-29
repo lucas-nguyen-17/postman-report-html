@@ -11,6 +11,10 @@ Handlebars.registerHelper("countTest", function (num) {
     return num + 1;
 });
 
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 function render(filename, data) {
     var source = fs.readFileSync(filename, "utf8").toString();
     var template = Handlebars.compile(source);

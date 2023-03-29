@@ -9,6 +9,13 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
 
     <title>Postman Result Summary: {{summary.name}}</title>
+
+    <style>
+        .btn-result.collapsed {
+            background-color: #c4c4c4;
+            border-color: #c4c4c4;
+        }
+    </style>
 </head>
 
 <body class="bg-body-tertiary">
@@ -56,32 +63,34 @@
                                     <p><b>URL</b>: {{url}}</p>
                                 </div>
 
-                                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                                <div class="my-3 p-3 bg-body rounded shadow-sm" id="result-list-{{@index}}">
 
                                     <h6 class="border-bottom pb-2 mb-0 text-danger">Test result</h6>
-                                    <p>{{#each allTests}}
-                                        <p>
-                                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapse{{@index}}" aria-expanded="false"
-                                                aria-controls="collapse{{@index}}">
+                                    <div class="my-2">
+                                        {{#each allTests}}
+                                            <button class="btn btn-primary btn-result {{#if @index }} collapsed {{/if}}" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse-{{@../index}}-{{@index}}" aria-expanded="false"
+                                                    aria-controls="collapse-{{@../index}}-{{@index}}">
                                                 {{countTest @index}}
                                             </button>
-                                        </p>
-
-                                    <div class="collapse" id="collapse{{@index}}">
-                                        <div class="card card-body pb-2">
-                                            <div class="text-body-secondary">
-
-                                                <div class="p-2">
-                                                    <pre class="m-0">{{toString this}}</pre>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
+                                        {{/each}}
                                     </div>
-                                    {{/each}}
-                                    </p>
+                                    <div>
+                                        {{#each allTests}}
+                                            <div class="collapse {{#ifEquals @index 0 }} show {{/ifEquals}}" id="collapse-{{@../index}}-{{@index}}" data-bs-parent="#result-list-{{@../index}}">
+                                                <div class="card card-body pb-2">
+                                                    <div class="text-body-secondary">
+
+                                                        <div class="p-2">
+                                                            <pre class="m-0">{{toString this}}</pre>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
 
                                 </div>
                             </div>
