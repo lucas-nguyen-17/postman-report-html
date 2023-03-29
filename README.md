@@ -1,7 +1,13 @@
-# How to run test
+# How to run
 
+## Setup
 - Setup Nodejs in machine first
-- Run test by command line
+- Open CMD or powershell
+
+```bash
+cd .\postman-report-html
+npm i
+```
 
 ## Example
 
