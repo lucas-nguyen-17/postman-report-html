@@ -1,0 +1,117 @@
+{
+	"id": "6447138b-1f7d-449f-b751-fcdd0a8f071b",
+	"name": "Medici Service",
+	"timestamp": "2023-03-28T09:32:07.450Z",
+	"collection_id": "25351457-f25ee1dc-be37-42e9-879f-1a6fda29f859",
+	"folder_id": 0,
+	"environment_id": "25351457-cb8cfe07-641d-463b-828d-ab54b86c7d9b",
+	"totalPass": 37,
+	"delay": 0,
+	"persist": false,
+	"status": "finished",
+	"startedAt": "2023-03-28T09:32:05.696Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "b43ed4ec-7286-49dc-a4e0-54a49bd9f2af",
+			"name": "2 level",
+			"url": "http://uat-ip.medici.vn/commission/api/contract-commission",
+			"time": 121,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 7,
+					"fail": 0
+				},
+				"Verify saleLevel": {
+					"pass": 11,
+					"fail": 0
+				},
+				"Verify personalIncomeBeforeTax": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Verify topSaleIncomeBeforeTax": {
+					"pass": 6,
+					"fail": 0
+				},
+				"Verify similarLevelIncomeBeforeTax": {
+					"pass": 6,
+					"fail": 0
+				}
+			},
+			"times": [
+				377,
+				91,
+				155,
+				92,
+				86,
+				85,
+				121
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true,
+					"Verify saleLevel": true,
+					"Verify personalIncomeBeforeTax": true,
+					"Verify topSaleIncomeBeforeTax": true,
+					"Verify similarLevelIncomeBeforeTax": true
+				},
+				{
+					"Verify status code": true
+				}
+			]
+		}
+	],
+	"count": 7,
+	"totalTime": 1007,
+	"collection": {
+		"requests": [
+			{
+				"id": "b43ed4ec-7286-49dc-a4e0-54a49bd9f2af",
+				"method": "POST"
+			}
+		]
+	}
+}
