@@ -4,6 +4,7 @@ const moment = require("moment");
 const { argv } = require('node:process');
 const { homedir } = require('os');
 const path = require('path');
+const momentzone = require("moment-timezone");
 
 Handlebars.registerHelper("toString", function (json) {
     return JSON.stringify(json, null, 4);
@@ -32,13 +33,20 @@ function getDuration(res) {
         .asMilliseconds();
 }
 
-function getData(file) {
-    const summary = JSON.parse(fs.readFileSync(file, "utf8"));
+function getData() {
+    const key = '-i=';
+    const pathToFile = argv.find((item) => item.indexOf(key) === 0);
+    if (!pathToFile) {
+        console.log('Not correct data input file')
+    }
+
+    const summary = JSON.parse(fs.readFileSync(pathToFile.replace(key, ""), "utf8"));
     const duration = getDuration(summary);
     return { "summary": summary, "duration": duration };
+    
 }
 
-var data = getData("./data/Medici Service.postman_test_run.json");
+var data = getData();
 
 const result = render("./views/main.hbs", data);
 
@@ -52,13 +60,13 @@ function writeFile(path, contents, cb) {
 }
 
 const getOutputPath = function () {
-    const key = '-outputPath=';
+    const key = '-o=';
     const found = argv.find((item) => item.indexOf(key) === 0);
     if (found) {
         return found.replace(key, '');
     }
-
-    return path.join(homedir(), 'postman-report.html');
+    let date_time = momentzone().tz("Asia/Ho_Chi_Minh").format("DD-MM-YYYY_HH-mm-ss");
+    return path.join(homedir(), `postman-report-${date_time}.html`);
 };
 
 const outputPath = getOutputPath();
