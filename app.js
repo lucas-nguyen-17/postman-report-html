@@ -1,6 +1,9 @@
 const fs = require("fs");
 const Handlebars = require("handlebars");
 const moment = require("moment");
+const { argv } = require('node:process');
+const { homedir } = require('os');
+const path = require('path');
 
 Handlebars.registerHelper("toString", function (json) {
     return JSON.stringify(json, null, 4);
@@ -48,8 +51,23 @@ function writeFile(path, contents, cb) {
     });
 }
 
-writeFile("./tmp/report.html", result, (err) => {
+const getOutputPath = function () {
+    const key = '-outputPath=';
+    const found = argv.find((item) => item.indexOf(key) === 0);
+    if (found) {
+        return found.replace(key, '');
+    }
+
+    return path.join(homedir(), 'postman-report.html');
+};
+
+const outputPath = getOutputPath();
+writeFile(outputPath, result, (err) => {
     if (err) {
         console.log(err);
+    } else {
+        console.log('Output file is in: ', outputPath)
     }
 });
+
+// Command: node app.js -outputPath="path/to/the/file/output.html"
