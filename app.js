@@ -18,6 +18,21 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
+Handlebars.registerHelper('checkTestResult', function(json) {
+    if(Object.values(json).includes(false)){
+        return "fail";
+    } else {
+        return "pass";
+    }
+});
+
+Handlebars.registerHelper('getMethod', function(id, json) {
+    const obj = json.find(e => {
+        return id === e.id;
+    })
+    return obj.method;
+});
+
 function render(filename, data) {
     var source = fs.readFileSync(filename, "utf8").toString();
     var template = Handlebars.compile(source);
@@ -77,5 +92,3 @@ writeFile(outputPath, result, (err) => {
         console.log('Output file is in: ', outputPath)
     }
 });
-
-// Command: node app.js -outputPath="path/to/the/file/output.html"

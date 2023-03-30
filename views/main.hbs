@@ -15,6 +15,19 @@
             background-color: #c4c4c4;
             border-color: #c4c4c4;
         }
+
+        .pass {
+            color: #198754;
+            border-width: 2px;
+            border-color: #198754;
+        }
+
+        .fail {
+            color: #dc3545;
+            border-width: 2px;
+            border-color: #dc3545;
+        }
+
     </style>
 </head>
 
@@ -42,17 +55,18 @@
 
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             {{#each summary.results}}
+            
             <div id="accordion{{@index}}" class="my-3">
                 <div class="card">
                     <div class="card-header" id="headingOne{{@index}}">
-                        <h5 class="mb-2">
-                            <button class="btn btn-link mb-1" data-bs-toggle="collapse"
+                        <h5 class="m-2">
+                            <button class="btn {{checkTestResult tests}}" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne{{@index}}" aria-expanded="true"
                                 aria-controls="collapseOne{{@index}}">
-                                <b>API Name</b>:
-                                {{name}}
+                                <b>{{getMethod id ../summary/collection/requests}} </b>- {{name}}
                             </button>
-                        </h5>
+                            
+                        </h5>        
                     </div>
 
                     <div id="collapseOne{{@index}}" class="collapse" aria-labelledby="headingOne"
@@ -61,6 +75,7 @@
                             <div class="p-2">
                                 <div class="">
                                     <p><b>URL</b>: {{url}}</p>
+                                    <p><b>Response Code</b>: {{responseCode.code}}</p>
                                 </div>
 
                                 <div class="my-3 p-3 bg-body rounded shadow-sm" id="result-list-{{@index}}">
@@ -68,7 +83,7 @@
                                     <h6 class="border-bottom pb-2 mb-0 text-danger">Test result</h6>
                                     <div class="my-2">
                                         {{#each allTests}}
-                                            <button class="btn btn-primary btn-result collapsed" type="button" data-bs-toggle="collapse"
+                                            <button class="btn {{checkTestResult this}} btn-result collapsed" type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#collapse-{{@../index}}-{{@index}}" aria-expanded="false"
                                                     aria-controls="collapse-{{@../index}}-{{@index}}">
                                                 {{countTest @index}}

@@ -1,0 +1,96 @@
+{
+    "id": "3ccb2774-e9ab-43e5-a791-eecafa4395b9",
+    "name": "Postman CLI",
+    "timestamp": "2023-03-30T08:58:32.952Z",
+    "collection_id": "1289545-b2ed8448-f64e-4bd2-904f-3fa7c8ef5266",
+    "folder_id": 0,
+    "environment_id": "1289545-83f5a982-6da5-4167-a0cd-63c30a23781f",
+    "totalPass": 2,
+    "delay": 0,
+    "persist": false,
+    "status": "finished",
+    "startedAt": "2023-03-30T08:58:32.657Z",
+    "totalFail": 1,
+    "results": [
+        {
+            "id": "d868778c-54e9-4223-9372-50164a428af1",
+            "name": "New Request",
+            "url": "http://localhost:8000/echo",
+            "time": 5,
+            "responseCode": {
+                "code": 200,
+                "name": "OK"
+            },
+            "tests": {
+                "Correct equal": true,
+                "Wrong equal": false
+            },
+            "testPassFailCounts": {
+                "Correct equal": {
+                    "pass": 1,
+                    "fail": 0
+                },
+                "Wrong equal": {
+                    "pass": 0,
+                    "fail": 1
+                }
+            },
+            "times": [5],
+            "allTests": [
+                {
+                    "Correct equal": true,
+                    "Wrong equal": false
+                }
+            ]
+        },
+        {
+            "id": "e3f13e55-a028-4983-93da-e134ca77c55b",
+            "name": "New Request Copy",
+            "url": "http://localhost:8000/echo",
+            "time": 3,
+            "responseCode": {
+                "code": 200,
+                "name": "OK"
+            },
+            "tests": {
+                "Correct equal": true
+            },
+            "testPassFailCounts": {
+                "Correct equal": {
+                    "pass": 1,
+                    "fail": 0
+                }
+            },
+            "times": [3],
+            "allTests": [
+                {
+                    "Correct equal": true
+                },
+                {
+                    "Correct equal": true
+                },
+                {
+                    "Correct equal": true
+                },
+                {
+                    "Correct equal": true,
+                    "Wrong equal": false
+                }
+            ]
+        }
+    ],
+    "count": 1,
+    "totalTime": 8,
+    "collection": {
+        "requests": [
+            {
+                "id": "d868778c-54e9-4223-9372-50164a428af1",
+                "method": "POST"
+            },
+            {
+                "id": "e3f13e55-a028-4983-93da-e134ca77c55b",
+                "method": "POST"
+            }
+        ]
+    }
+}
