@@ -21,3 +21,7 @@ node app.js -i='C:\Users\dunguyen\VScodeProject\postman-report-html\data\sample.
 ```bash
 node app.js -i='C:\Users\dunguyen\VScodeProject\postman-report-html\data\sample.postman_test_run.json'
 ```
+
+![1](./images/1.png "1.png")
+![2](./images/2.png "2.png")
+![3](./images/3.png "3.png")
